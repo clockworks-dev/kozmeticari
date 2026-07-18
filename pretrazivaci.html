@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="slides-format" content="viewport">
+  <title>Internetski pretraživači i društvene mreže u poslovanju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-bg: #fdf8fb;
+      --color-bg-deep: #f7eef7;
+      --color-surface: #ffffff;
+      --color-text: #3d2340;
+      --color-text-secondary: #6f5472;
+      --color-text-muted: #9a7fa0;
+      --color-accent-1: #f472b6;
+      --color-accent-2: #c084fc;
+      --color-accent-3: #f9c74f;
+      --color-glass-bg: rgba(255,255,255,0.82);
+      --color-glass-border: rgba(61,35,64,0.08);
+      --color-vignette: rgba(61,35,64,0.08);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+    }
+  </style>
+  <style>
+    :root {
+      --color-bg: #fdf8fb;
+      --color-text: #3d2340;
+      --glow-color-rgb: 244, 114, 182;
+      --color-glass-bg: rgba(255, 255, 255, .82);
+      --color-glass-dots: rgba(244, 114, 182, .24);
+      --color-glass-border: rgba(61, 35, 64, .08);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      background: var(--color-bg);
+      margin: 0
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background: var(--color-bg);
+      opacity: 0;
+      transform: scale(.95);
+      transition: opacity .7s ease, transform .7s ease;
+      pointer-events: none;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: all
+    }
+
+    .slide>.content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1180px;
+      padding: clamp(1.3rem, 3vw, 3rem)
+    }
+
+    .nav-controls {
+      position: fixed;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 100;
+      background: var(--color-glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: 1px solid var(--color-glass-border)
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: var(--color-glass-bg);
+      color: var(--color-accent-1);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 8px
+    }
+
+    .slide-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-glass-dots);
+      cursor: pointer;
+      transition: background .3s, transform .3s
+    }
+
+    .slide-dots .dot.active {
+      background: var(--color-accent-1);
+      transform: scale(1.3)
+    }
+
+    .slide-counter {
+      font-size: .8rem;
+      color: var(--color-text-muted);
+      min-width: 54px;
+      text-align: center
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px)
+    }
+
+    .gradient-mesh {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float-slow 12s ease-in-out infinite
+    }
+
+    .blob:nth-child(2) {
+      animation: float-drift 16s ease-in-out infinite
+    }
+
+    .blob:nth-child(3) {
+      animation: float-slow 20s ease-in-out infinite reverse
+    }
+
+    @keyframes float-slow {
+      0% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      25% {
+        transform: translate(60px, -50px) scale(1.1)
+      }
+
+      50% {
+        transform: translate(-40px, 40px) scale(.92)
+      }
+
+      75% {
+        transform: translate(50px, 20px) scale(1.06)
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+    }
+
+    @keyframes float-drift {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg)
+      }
+
+      33% {
+        transform: translate(-50px, -60px) scale(1.12) rotate(3deg)
+      }
+
+      66% {
+        transform: translate(40px, 30px) scale(.88) rotate(-2deg)
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1) rotate(0deg)
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-14px)
+      }
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+      opacity: .015;
+      mix-blend-mode: overlay
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 58%, var(--color-vignette) 100%)
+    }
+
+    .glass {
+      background: var(--color-glass-bg);
+      border: 1px solid var(--color-glass-border);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 14px 34px rgba(142, 92, 132, .12)
+    }
+
+    .bar-track {
+      background: rgba(61, 35, 64, .08);
+      border-radius: 999px;
+      overflow: hidden;
+      height: 22px
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2))
+    }
+
+    .fake-image {
+      background: linear-gradient(135deg, rgba(244, 114, 182, .12), rgba(192, 132, 252, .11));
+      border: 1px solid rgba(61, 35, 64, .08)
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .2s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mouse-spotlight" style="position:fixed;inset:0;z-index:99;pointer-events:none"></div>
+  <div class="deck">
+    <section class="slide active" data-slide="1">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:520px;height:520px;top:-120px;right:-120px;background:var(--color-accent-1);opacity:.16"></div>
+        <div class="blob"
+          style="width:340px;height:340px;bottom:-90px;left:-70px;background:var(--color-accent-2);opacity:.14"></div>
+        <div class="blob"
+          style="width:220px;height:220px;top:40%;left:16%;background:var(--color-accent-3);opacity:.12"></div>
+      </div>
+      <div class="content text-center">
+        <div class="text-[118px] mb-4 animate-[float_3s_ease-in-out_infinite] reveal">🔎</div>
+        <h1
+          class="font-display text-[clamp(2.5rem,5.8vw,4.9rem)] font-black bg-linear-to-br from-accent-1 via-accent-2 to-accent-1 bg-clip-text text-transparent tracking-tight mb-4 reveal">
+          Internetski pretraživači i društvene mreže u poslovanju</h1>
+        <p class="text-[clamp(1rem,1.7vw,1.35rem)] font-light text-text-muted tracking-[6px] uppercase reveal">
+          Pretraživanje informacija, sadržaj i digitalna odgovornost</p>
+      </div>
+    </section>
+    <section class="slide" data-slide="2">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:380px;height:380px;top:-70px;right:-70px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-50px;left:-40px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Zašto je ovo važno kozmetičarima?</h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🔎</div>
+            <h3 class="text-2xl font-semibold mb-2">Vidljivost</h3>
+            <p class="text-lg text-text-secondary">Klijenti vas prvo traže na internetu prije dolaska u salon.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📱</div>
+            <h3 class="text-2xl font-semibold mb-2">Povjerenje</h3>
+            <p class="text-lg text-text-secondary">Uredan profil i jasne informacije povećavaju dojam profesionalnosti.
+            </p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">💬</div>
+            <h3 class="text-2xl font-semibold mb-2">Komunikacija</h3>
+            <p class="text-lg text-text-secondary">Društvene mreže pomažu kod naručivanja, preporuka i lojalnosti
+              klijenata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="3">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:350px;height:350px;top:-60px;right:-50px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:260px;height:260px;bottom:-50px;left:-30px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Ishodi i cjeline</h2>
+
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <div class="text-accent-1 text-4xl mb-2">01</div>
+            <h3 class="text-2xl font-semibold mb-2">Pretraživanje informacija</h3>
+            <p class="text-xl text-text-secondary">Ključne riječi, navodnici, filtri i odabir relevantnih rezultata.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <div class="text-accent-2 text-4xl mb-2">02</div>
+            <h3 class="text-2xl font-semibold mb-2">Vjerodostojnost izvora</h3>
+            <p class="text-xl text-text-secondary">Procjena autora, domene, datuma objave i svrhe sadržaja.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <div class="text-accent-3 text-4xl mb-2">03</div>
+            <h3 class="text-2xl font-semibold mb-2">Društvene mreže</h3>
+            <p class="text-xl text-text-secondary">Ciljana publika, izbor kanala i oblikovanje objava za uslugu ili
+              kampanju.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <div class="text-accent-1 text-4xl mb-2">04</div>
+            <h3 class="text-2xl font-semibold mb-2">Planiranje i reputacija</h3>
+            <p class="text-xl text-text-secondary">Sadržajni kalendar, digitalni trag, privatnost, sigurnost i pozitivnu
+              digitalnu reputaciju.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="4">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:10%;left:-50px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:270px;height:270px;bottom:-40px;right:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <div class="grid grid-cols-[1.15fr_.85fr] gap-8 items-center">
+          <div class="reveal">
+            <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold mb-4">Što su internetski pretraživači?</h2>
+            <p class="text-2xl leading-relaxed text-text-secondary">Pretraživači su digitalni alati koji pronalaze,
+              indeksiraju i rangiraju mrežne sadržaje kako bi korisniku prikazali najrelevantnije rezultate za zadani
+              upit.
+              <br>
+              Pomažu nam pronaći informacije o
+              proizvodima, tretmanima, edukacijama, opremi i trendovima.
+            </p>
+            <ul class="mt-6 space-y-3 text-xl text-text-secondary">
+              <li>• Primjeri: Google, Bing, DuckDuckGo i drugi.</li>
+              <li>• Pretraživač povezuje upit korisnika s mrežnim sadržajem.</li>
+              <li>• Rezultati mogu voditi na web stranice, slike, vijesti, videozapise...</li>
+              <li>• Dobar upit štedi vrijeme i vodi do kvalitetnijih rezultata.</li>
+            </ul>
+          </div>
+          <div class="fake-image rounded-3xl min-h-[340px] flex items-center justify-center reveal">
+            <div class="text-center px-8">
+              <img class="align-self-center" src="./media/browsers.png" alt="" srcset="">
+              <p class="text-xl text-text-secondary">Popularni preglednici</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="5">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:350px;height:350px;top:-60px;right:-70px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-20px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Ključne riječi u praksi</h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">💅</div>
+            <h3 class="text-2xl font-semibold mb-2">Specifično</h3>
+            <p class="text-lg text-text-secondary">Umjesto “nokti” napiši “trajni lak njega noktiju”.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📍</div>
+            <h3 class="text-2xl font-semibold mb-2">Lokacija</h3>
+            <p class="text-lg text-text-secondary">Dodaj grad ili naselje, npr. “pedikura Varaždin”.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎯</div>
+            <h3 class="text-2xl font-semibold mb-2">Namjera</h3>
+            <p class="text-lg text-text-secondary">Tražiš li cjenik, edukaciju, recenzije ili inspiraciju za objavu?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="6">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:-60px;right:-60px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-50px;left:-30px;background:var(--color-accent-3);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Osnove učinkovitog pretraživanja</h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🔑</div>
+            <h3 class="text-2xl font-semibold mb-2">Ključne riječi</h3>
+            <p class="text-lg text-text-secondary">Koristi kratke i jasne pojmove umjesto cijelih rečenica.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">❝ ❞</div>
+            <h3 class="text-2xl font-semibold mb-2">Navodnici</h3>
+            <p class="text-lg text-text-secondary">Pretražuju točan izraz, npr. “digitalni marketing”.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🔬</div>
+            <h3 class="text-2xl font-semibold mb-2">Filtri</h3>
+            <p class="text-lg text-text-secondary">Ograničavaju rezultate prema datumu, jeziku ili vrsti sadržaja.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">➕</div>
+            <h3 class="text-2xl font-semibold mb-2">Dodavanje pojmova</h3>
+            <p class="text-lg text-text-secondary">Širi ili sužava temu dodavanjem mjesta, godine ili područja.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">❌</div>
+            <h3 class="text-2xl font-semibold mb-2">Uklanjanje šuma</h3>
+            <p class="text-lg text-text-secondary">Negativni pojmovi pomažu isključiti nepoželjne rezultate.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎯</div>
+            <h3 class="text-2xl font-semibold mb-2">Namjera</h3>
+            <p class="text-lg text-text-secondary">Razmisli tražiš li objašnjenje, vijest, alat, tutorial ili podatak.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="7">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:350px;height:350px;top:-60px;right:-60px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Vrste izvora na internetu</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-2">Službene web stranice</h3>
+            <p class="text-xl text-text-secondary">Službene informacije tvrtki, brendovima, škole, zavodi, proizvođači,
+              javna tijela i obrazovne ustanove.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-2">Blogovi i forumi</h3>
+            <p class="text-xl text-text-secondary">Osobna ili stručna mišljenja, iskustva i komentari autora, <span
+                class="text-accent-1">ali nisu uvijek stručni izvor</span>.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-2">Vijesti i portali</h3>
+            <p class="text-xl text-text-secondary">Aktualni događaji, izvještaji, informacije o trendovima, sajmovima i
+              industriji.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-2">Video i podcast sadržaj</h3>
+            <p class="text-xl text-text-secondary">Demonstracije tretmana, tehnika, promocije usluga, razgovori,
+              recenzije i edukativni prilozi</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="8">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-80px;right:-60px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-30px;left:-20px;background:var(--color-accent-3);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Kako procijeniti vjerodostojnost izvora?
+        </h2>
+        <div class="grid grid-cols-2 gap-8 items-center mt-8">
+          <div class="glass rounded-3xl p-8 reveal">
+            <ul class="space-y-4 text-xl text-text-secondary leading-relaxed">
+              <li>• Tko je autor i ima li stručnost za temu?</li>
+              <li>• Kada je sadržaj objavljen ili zadnji put ažuriran?</li>
+              <li>• Postoje li izvori, reference i dokazi?</li>
+              <li>• Je li cilj educirati, prodati, uvjeriti ili zabaviti?</li>
+              <li>• Potvrđuje li isto više pouzdanih izvora?</li>
+            </ul>
+          </div>
+          <div class="glass rounded-3xl p-8 reveal">
+            <div class="text-6xl font-bold mb-4" style="color:var(--color-accent-1)">5</div>
+            <h3 class="text-2xl font-semibold mb-3">Pet pitanja za provjeru</h3>
+            <p class="text-xl text-text-secondary">Ovih pet koraka smanjuje rizik od korištenja netočnih ili zastarjelih
+              informacija u radu i objavama, te koliko je sadržaj pouzdan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="9">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:340px;height:340px;top:-70px;right:-60px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:270px;height:270px;bottom:-60px;left:-40px;background:var(--color-accent-3);opacity:.07"></div>
+      </div>
+      <div class="content text-center">
+        <h2 class="font-display text-[clamp(2.2rem,4.8vw,3.4rem)] font-bold mb-5 reveal">Od pretrage do online
+          prisutnosti</h2>
+        <p class="text-2xl text-text-secondary max-w-[860px] mx-auto reveal">Pronađeni podaci postaju korisne
+          informacije tek
+          kada odaberemo adekvatnu društvenu mrežu, planiramo kvalitetan sadržaj, jasnu komunikaciju i dobar odnos s
+          klijentima.</p>
+      </div>
+    </section>
+    <section class="slide" data-slide="10">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:8%;left:-50px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:280px;height:280px;bottom:-40px;right:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Glavne društvene mreže za kozmetičare
+        </h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📸</div>
+            <h3 class="text-2xl font-semibold mb-2">Instagram</h3>
+            <p class="text-lg text-text-secondary">Vizualni identitet, kratki video, lifestyle prezentacija.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎵</div>
+            <h3 class="text-2xl font-semibold mb-2">TikTok</h3>
+            <p class="text-lg text-text-secondary">Kratki videozapisi, trendovi i brzi savjeti za njegu.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📘</div>
+            <h3 class="text-2xl font-semibold mb-2">Facebook</h3>
+            <p class="text-lg text-text-secondary">Lokalna publika, događaji, promocije, obavijesti i recenzije
+              klijenata.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">▶️</div>
+            <h3 class="text-2xl font-semibold mb-2">YouTube</h3>
+            <p class="text-lg text-text-secondary">Tutorijali, demonstracije, duži edukativni sadržaji i demonstracije
+              postupaka.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">💼</div>
+            <h3 class="text-2xl font-semibold mb-2">LinkedIn</h3>
+            <p class="text-lg text-text-secondary">Stručni identitet, edukacije i poslovno umrežavanje.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">💬</div>
+            <h3 class="text-2xl font-semibold mb-2">WhatsApp / Messenger</h3>
+            <p class="text-lg text-text-secondary">Brzo dogovaranje termina i kratka komunikacija s klijentima.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="11">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-70px;right:-60px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-20px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Ciljana publika u kozmetičkom poslovanju
+        </h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Pitanja za analizu</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Tko je kupac ili korisnik?</li>
+              <li>• Koji problem rješava proizvod ili usluga?</li>
+              <li>• Koje mreže koriste naši korisnici?</li>
+              <li>• Što motivira korisnike na rezervaciju termina?</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Pitanja prije objave</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Koliko korisnici imaju godina?</li>
+              <li>• Što im je važno: cijena, kvaliteta ili trend?</li>
+              <li>• Na kojoj mreži korisnici provode naviše vremena?</li>
+              <li>• Preferiraju li korisnici tekst, sliku ili video?</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Moguće skupine</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Tinejdžeri i mlade osobe.</li>
+              <li>• Zaposlene osobe koje žele brzu uslugu.</li>
+              <li>• Klijenti koji traže premium tretmane.</li>
+              <li>• Osobe zainteresirane za njegu kože i edukaciju.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="12">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:-60px;right:-60px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-50px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Kako odabrati pravi kanal?</h2>
+
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">✍️</div>
+            <h3 class="text-2xl font-semibold mb-2">Tekst</h3>
+            <p class="text-lg text-text-secondary">Kratak, jasan i prilagođen tonu mreže, uključuje poziv na akciju.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🖼️</div>
+            <h3 class="text-2xl font-semibold mb-2">Slika / grafika</h3>
+            <p class="text-lg text-text-secondary">Kontrast, čitljiv naslov i vizual koji odmah privlači pogled.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎬</div>
+            <h3 class="text-2xl font-semibold mb-2">Kratki video</h3>
+            <p class="text-lg text-text-secondary">Brza poruka, titlovi i dinamičan kadar za gledanje bez zvuka.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📷</div>
+            <h3 class="text-2xl font-semibold mb-2">Vizualna usluga</h3>
+            <p class="text-lg text-text-secondary">Za nokte, šminku i trepavice posebno je važan Instagram.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎥</div>
+            <h3 class="text-2xl font-semibold mb-2">Proces rada</h3>
+            <p class="text-lg text-text-secondary">Za prikaz “prije-poslije” i kratkih savjeta dobar je TikTok ili
+              Reels.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📢</div>
+            <h3 class="text-2xl font-semibold mb-2">Akcije i obavijesti</h3>
+            <p class="text-lg text-text-secondary">Za lokalne promocije i događaje koristi Facebook.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="13">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:350px;height:350px;top:-70px;right:-60px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Kreiranje teksta za objavu</h2>
+        <div class="grid grid-cols-2 gap-8 items-center mt-8">
+          <div class="glass rounded-3xl p-8 reveal">
+            <ul class="space-y-4 text-xl text-text-secondary">
+              <li>• Napiši jasan naslov ili prvu rečenicu.</li>
+              <li>• Istakni korist za klijenta.</li>
+              <li>• Koristi prijateljski i profesionalan ton.</li>
+              <li>• Dodaj poziv na akciju: <span class="text-accent-1">rezerviraj</span>, <span
+                  class="text-accent-1">javi se</span>, <span class="text-accent-1">saznaj više</span>.
+              </li>
+            </ul>
+          </div>
+          <div class="glass rounded-3xl p-8 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Primjer</h3>
+            <p class="text-xl text-text-secondary">“Želiš uredne i postojane nokte za vikend? Rezerviraj termin za
+              trajni lak i pripremi ruke za posebnu prigodu.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="14">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-80px;right:-80px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-50px;left:-20px;background:var(--color-accent-3);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Vizuali koji privlače pažnju</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Fotografije</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Dobro osvjetljenje.</li>
+              <li>• Čista pozadina.</li>
+              <li>• Fokus na rezultat tretmana.</li>
+              <li>• Usklađene boje i stil profila.</li>
+            </ul>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Grafike</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Kratka poruka i čitljiv font.</li>
+              <li>• Istakni akciju, uslugu ili savjet.</li>
+              <li>• Nemoj pretrpati sliku tekstom.</li>
+              <li>• Koristi isti vizualni identitet salona.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="15">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:340px;height:340px;top:-70px;right:-60px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:260px;height:260px;bottom:-50px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Kratki video za društvene mreže</h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">⏱️</div>
+            <h3 class="text-2xl font-semibold mb-2">Kratko</h3>
+            <p class="text-lg text-text-secondary">Jedna jasna poruka u nekoliko sekundi.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🎞️</div>
+            <h3 class="text-2xl font-semibold mb-2">Dinamično</h3>
+            <p class="text-lg text-text-secondary">Prikaži postupak, detalj ili rezultat “prije-poslije”.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🔤</div>
+            <h3 class="text-2xl font-semibold mb-2">S titlovima</h3>
+            <p class="text-lg text-text-secondary">Mnogi gledaju video bez zvuka pa tekst pomaže razumjeti poruku.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="16">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:350px;height:350px;top:-70px;right:-60px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-20px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Kako povećati zanimanje publike?</h2>
+        <div class="grid grid-cols-2 gap-8 items-center mt-8">
+          <div class="glass rounded-3xl p-8 reveal">
+            <div class="space-y-4 text-xl text-text-secondary">
+              <p>• Kombiniraj tekst (<span class="text-accent-1">savjete</span>), fotografiju (<span
+                  class="text-accent-1">promocije</span>), anketu (<span class="text-accent-1">rezultate</span>), story
+                i video (<span class="text-accent-1">pitanja za publiku</span>).
+              </p>
+              <p>• Objavi jasan naslov i jednu glavnu poruku po objavi.</p>
+              <p>• Objavljuj sadržaj koji rješava problem klijenta.</p>
+              <p>• Uključuj ankete, storyje, kratka pitanja, pozive na komentiranje i praktične savjete.</p>
+              <p>• Prati reakcije publike i ponavljaj formate koji donose najbolji odaziv.</p>
+            </div>
+          </div>
+          <div class="glass rounded-3xl p-8 reveal">
+            <h3 class="text-2xl font-semibold mb-5">Elementi dobre objave</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-lg mb-1"><span>Koristan sadržaj</span><span>92%</span></div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:92%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-lg mb-1"><span>Dobra fotografija</span><span>88%</span></div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:88%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-lg mb-1"><span>Jasna poruka</span><span>90%</span></div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-lg mb-1"><span>Poziv na akciju</span><span>80%</span></div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="17">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-80px;right:-60px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-50px;left:-20px;background:var(--color-accent-3);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Planiranje objava i sadržajni kalendar
+        </h2>
+
+        <div class="glass rounded-3xl p-7 reveal">
+          <h3 class="text-2xl font-semibold mb-3">Zašto planirati?</h3>
+          <ul class="space-y-3 text-xl text-text-secondary">
+            <li>• Objave su redovite i usklađene s ciljevima.</li>
+            <li>• Sadržaj se priprema unaprijed bez žurbe.</li>
+            <li>• Lakše je rasporediti zadatke u timu, pripremiti fotografije i video.</li>
+            <li>• Kampanje su povezane s datumima, sezonom i događajima.</li>
+            <li>• Ne zaboravljaš važne objave.</li>
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Što kalendar sadrži?</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Datum i vrijeme objave.</li>
+              <li>• Mrežu na kojoj se objava objavljuje.</li>
+              <li>• Vrstu sadržaja i glavnu poruku.</li>
+              <li>• Odgovornu osobu i potrebne materijale.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Vrste sadržaja</h3>
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Informativni.</li>
+              <li>• Promotivni.</li>
+              <li>• Edukativni.</li>
+              <li>• Zabavni i interaktivni.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="18">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:320px;height:320px;top:10%;left:-50px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:270px;height:270px;bottom:-30px;right:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Primjer tjednog sadržajnog kalendara
+        </h2>
+        <div class="glass rounded-3xl p-6 mt-8 reveal">
+          <div class="grid grid-cols-[1.1fr_1fr_1fr_1fr] gap-4 text-lg">
+            <div class="font-semibold text-text">Dan</div>
+            <div class="font-semibold text-text">Mreža</div>
+            <div class="font-semibold text-text">Sadržaj</div>
+            <div class="font-semibold text-text">Cilj</div>
+            <div class="text-text-secondary">Ponedjeljak</div>
+            <div class="text-text-secondary">Instagram</div>
+            <div class="text-text-secondary">Prije-poslije</div>
+            <div class="text-text-secondary">Privući pažnju</div>
+            <div class="text-text-secondary">Utorak</div>
+            <div class="text-text-secondary">LinkedIn</div>
+            <div class="text-text-secondary">Savjet / mini članak</div>
+            <div class="text-text-secondary">Stručni ugled</div>
+            <div class="text-text-secondary">Srijeda</div>
+            <div class="text-text-secondary">TikTok</div>
+            <div class="text-text-secondary">Kratki savjet</div>
+            <div class="text-text-secondary">Doseg i zabava</div>
+            <div class="text-text-secondary">Četvrtak</div>
+            <div class="text-text-secondary">Facebook</div>
+            <div class="text-text-secondary">Akcija tjedna</div>
+            <div class="text-text-secondary">Rezervacije</div>
+            <div class="text-text-secondary">Petak</div>
+            <div class="text-text-secondary">Instagram Reel</div>
+            <div class="text-text-secondary">Behind the scenes</div>
+            <div class="text-text-secondary">Povezivanje s publikom</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="19">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-80px;right:-70px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:240px;height:240px;bottom:-40px;left:-30px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Analiza rezultata</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">❤️</div>
+            <h3 class="text-2xl font-semibold mb-2">Engagement</h3>
+            <p class="text-lg text-text-secondary">Lajkovi, komentari, dijeljenja i spremanja pokazuju reakciju i
+              interes publike.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📈</div>
+            <h3 class="text-2xl font-semibold mb-2">Doseg</h3>
+            <p class="text-lg text-text-secondary">Broj ljudi koji je vidio sadržaj i na kojim kanalima / mrežama.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">📩</div>
+            <h3 class="text-2xl font-semibold mb-2">Upiti</h3>
+            <p class="text-lg text-text-secondary">Poruke i rezervacije pokazuju stvarni poslovni učinak.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🗣️</div>
+            <h3 class="text-2xl font-semibold mb-2">Povratne informacije</h3>
+            <p class="text-lg text-text-secondary">Poruke korisnika otkrivaju što treba promijeniti ili poboljšati.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="20">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:360px;height:360px;top:-70px;right:-60px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:250px;height:250px;bottom:-40px;left:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Suradnja u timu</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Podjela zadataka</h3>
+            <p class="text-xl text-text-secondary">Jedna osoba može fotografirati, druga pisati tekst, a treća objaviti
+              i odgovoriti na poruke.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Dogovor i dosljednost</h3>
+            <p class="text-xl text-text-secondary">Tim mora koristiti isti ton, boje, pravila privatnosti i raspored
+              objava.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="21">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:-70px;right:-50px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:260px;height:260px;bottom:-50px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Digitalna i odgovorno ponašanje na mreži
+        </h2>
+
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Digitalna reputacija</h3>
+            <p class="text-xl text-text-secondary leading-relaxed">Sve objave, komentari i reakcije grade sliku o osobi
+              ili organizaciji. Ta slika može utjecati na školovanje, zapošljavanje i povjerenje drugih.</p>
+            <p class="text-xl text-text-secondary leading-relaxed">Pozitivna reputacija gradi povjerenje, dok
+              neprofesionalan nastup može odbiti buduće klijente.</p>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <h3 class="text-2xl font-semibold mb-3">Odgovorno ponašanje</h3>
+            <p class="text-xl text-text-secondary leading-relaxed">Poštuj sugovornike, provjeri informacije prije
+              dijeljenja i razmisli kako će objava izgledati za mjesec ili godinu.</p>
+            <p class="text-xl text-text-secondary leading-relaxed">Na internetu se pamte vaše objave, komentari,
+              recenzije i način komunikacije s klijentima.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="slide" data-slide="22">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:-70px;right:-50px;background:var(--color-accent-1);opacity:.08"></div>
+        <div class="blob"
+          style="width:260px;height:260px;bottom:-50px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Zaštita vlastite privatnosti</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Ne objavljuj svoj kućni broj, osobni raspored ili privatne dokumente.</li>
+              <li>• Odvoji privatni i poslovni profil kada je to moguće.</li>
+              <li>• Uključi jake lozinke i dvofaktorsku prijavu.</li>
+              <li>• Provjeri tko može vidjeti tvoje objave, storyje i kontakte.</li>
+            </ul>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Pazi koje dozvole daješ aplikacije.</li>
+              <li>• Ne šalji osobne podatke preko nesigurnih poruka.</li>
+              <li>• Razmisli prije objave fotografije iz privatnog života.</li>
+              <li>• Redovito pregledaj postavke privatnosti na mrežama.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="23">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:-70px;right:-50px;background:var(--color-accent-3);opacity:.08"></div>
+        <div class="blob"
+          style="width:260px;height:260px;bottom:-50px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Što ne raditi na mreži</h2>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-7 reveal">
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Ne objavljuj fotografije klijenata bez dopuštenja.</li>
+              <li>• Ne ismijavaj konkurenciju, klijente ili kolege.</li>
+              <li>• Ne ulazi u svađe u komentarima.</li>
+              <li>• Ne dijeli neprovjerene savjete o zdravlju i koži.</li>
+            </ul>
+          </div>
+          <div class="glass rounded-3xl p-7 reveal">
+            <ul class="space-y-3 text-xl text-text-secondary">
+              <li>• Ne otkrivaj tuđe osobne podatke ili termine.</li>
+              <li>• Ne kopiraj tuđe fotografije i sadržaj bez dozvole.</li>
+              <li>• Ne obećavaj rezultate koje ne možeš dokazati.</li>
+              <li>• Ne zanemaruj neprimjerene poruke i sigurnosne prijetnje.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-slide="24">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:330px;height:330px;top:10%;left:-50px;background:var(--color-accent-2);opacity:.08"></div>
+        <div class="blob"
+          style="width:270px;height:270px;bottom:-30px;right:-20px;background:var(--color-accent-1);opacity:.07"></div>
+      </div>
+      <div class="content">
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3rem)] font-bold reveal">Internetski rizici i primjerena rješenja
+        </h2>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">⚠️</div>
+            <h3 class="text-2xl font-semibold mb-2">Dezinformacije</h3>
+            <p class="text-lg text-text-secondary">Provjeri izvor i usporedi informacije prije dijeljenja.</p>
+          </div>
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🛡️</div>
+            <h3 class="text-2xl font-semibold mb-2">Cyberbullying</h3>
+            <p class="text-lg text-text-secondary">Sačuvaj dokaze, prijavi sadržaj i blokiraj nasilno ponašanje.</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🕴💰</div>
+            <h3 class="text-2xl font-semibold mb-2">Krađa</h3>
+            <p class="text-lg text-text-secondary">Krađa osobnih podataka i lozinki.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🔒</div>
+            <h3 class="text-2xl font-semibold mb-2">Sigurnost računa</h3>
+            <p class="text-lg text-text-secondary">Koristi jake lozinke, dvofaktorsku zaštitu i oprez s poveznicama.</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 reveal">
+            <div class="text-4xl mb-3">🪪</div>
+            <h3 class="text-2xl font-semibold mb-2">Osobni podaci</h3>
+            <p class="text-lg text-text-secondary">Ne dijeli osobne podatke bez potrebe, provjeri privatnost profila i
+              dozvole aplikacija.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="slide" data-slide="25">
+      <div class="gradient-mesh">
+        <div class="blob"
+          style="width:520px;height:520px;top:-120px;right:-120px;background:var(--color-accent-1);opacity:.16"></div>
+        <div class="blob"
+          style="width:340px;height:340px;bottom:-90px;left:-70px;background:var(--color-accent-2);opacity:.14"></div>
+        <div class="blob"
+          style="width:220px;height:220px;top:40%;left:16%;background:var(--color-accent-3);opacity:.12"></div>
+      </div>
+      <div class="content text-center">
+        <div class="text-[110px] mb-4 animate-[float_3s_ease-in-out_infinite] reveal">✨</div>
+        <h2
+          class="font-display text-[clamp(2.5rem,5.5vw,4.7rem)] font-black bg-linear-to-br from-accent-1 via-accent-2 to-accent-1 bg-clip-text text-transparent tracking-tight mb-4 reveal">
+          Pametno traži, Profesionalno objavljuj!</h2>
+        <p class="text-[clamp(1rem,1.6vw,1.35rem)] font-light text-text-muted tracking-[6px] uppercase reveal">
+          Podatak ima vrijednost tek kada je pretvoren u informaciju koja je korisna, a
+          dobar sadržaj i odgovorno ponašanje grade uspjeh na mreži
+        </p>
+      </div>
+    </section>
+  </div>
+  <div class="nav-controls"><button class="nav-btn" onclick="changeSlide(-1)"
+      aria-label="Prethodni slajd">&#8249;</button>
+    <div class="slide-dots" id="dots"></div><button class="nav-btn" onclick="changeSlide(1)"
+      aria-label="Sljedeći slajd">&#8250;</button><span class="slide-counter" id="counter">1 / 25</span>
+  </div>
+
+  <script src="pretrazivaci.js"></script>
+</body>
+
+</html>
