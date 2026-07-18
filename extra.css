@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.fit-cover {
+    object-fit: cover;
+}

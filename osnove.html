@@ -294,6 +294,8 @@
       }
     }
   </style>
+
+  <link rel="stylesheet" href="./extra.css">
 </head>
 
 <body>
@@ -314,7 +316,8 @@
         <h1
           class="font-display text-[clamp(2.8rem,6vw,5.3rem)] font-black bg-linear-to-br from-accent-1 via-accent-2 to-accent-1 bg-clip-text text-transparent tracking-tight mb-4 reveal">
           Povijesni razvoj računala</h1>
-        <p class="text-[clamp(1rem,1.7vw,1.45rem)] font-light text-text-muted tracking-[6px] uppercase reveal">Od Abakusa
+        <p class="text-[clamp(1rem,1.7vw,1.45rem)] font-light text-text-muted tracking-[6px] uppercase reveal">Od
+          Abakusa
           do mikroprocesora i osobnih računala</p>
       </div>
     </section>
@@ -335,9 +338,11 @@
               računanju.</p>
           </div>
           <div class="fake-image rounded-3xl bg-white min-h-[330px] flex items-center justify-center reveal">
-            <div class="text-center">
-              <div class="text-[110px] mb-3">🧮</div>
-              <p class="text-xl text-text-secondary">Prva pomagala za zbrajanje, oduzimanje i kasnije složenije računske
+            <div class="text-center flex flex-column">
+              <img class="align-self-center w-75 p-8" src="./media/caveman.svg"
+                alt="Slika pračovjeka kako radi na kotaču">
+              <p class="text-xl text-text-secondary p-8">Prva pomagala za zbrajanje, oduzimanje i kasnije složenije
+                računske
                 operacije</p>
             </div>
           </div>
@@ -398,7 +403,7 @@
             </ul>
           </div>
           <div class="fake-image rounded-3xl bg-white min-h-[360px] flex items-center justify-center reveal">
-            <div class="text-[150px]">🧮</div>
+            <img class="align-self-center w-75" src="./media/abacus.jpg" alt="" srcset="">
           </div>
         </div>
       </div>
@@ -414,12 +419,10 @@
       <div class="content">
         <h2 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-bold reveal">John Napier i logaritmi</h2>
         <div class="grid grid-cols-2 gap-8 mt-8 items-center">
-          <div class="fake-image rounded-3xl bg-white min-h-[340px] flex items-center justify-center reveal">
-            <div class="text-center">
-              <div class="text-[110px] mb-3">📐</div>
-              <p class="text-xl text-text-secondary px-8">Logaritmi su pojednostavili množenje, dijeljenje i
-                potenciranje.</p>
-            </div>
+          <div class="fake-image rounded-3xl bg-white flex items-center justify-center reveal flex-column p-8">
+            <img class="align-self-center mb-10" src="./media/siber.jpg" alt="" srcset="">
+            <p class="text-xl text-text-secondary px-8">Logaritmi su pojednostavili množenje, dijeljenje i
+              potenciranje.</p>
           </div>
           <div class="glass rounded-3xl p-8 reveal">
             <p class="text-2xl leading-relaxed text-text-secondary mb-4">Škotski matematičar John Napier u 16. stoljeću
@@ -453,11 +456,11 @@
           </div>
         </div>
         <div class="grid grid-cols-2 gap-6 mt-6">
-          <div class="fake-image rounded-3xl bg-white h-[180px] flex items-center justify-center reveal">
-            <div class="text-7xl">⚙️</div>
+          <div class="rounded-3xl bg-white h-100 flex items-center justify-center reveal">
+            <img class="align-self-center" src="./media/pascalina.webp" alt="" srcset="">
           </div>
-          <div class="fake-image rounded-3xl bg-white h-[180px] flex items-center justify-center reveal">
-            <div class="text-7xl">🛠️</div>
+          <div class="rounded-3xl bg-white h-100 flex items-center justify-center reveal">
+            <img class="align-self-center" src="./media/von-machine.png" alt="" srcset="">
           </div>
         </div>
       </div>
@@ -476,14 +479,13 @@
           <div class="glass rounded-3xl p-8 reveal">
             <p class="text-xl text-text-secondary leading-relaxed mb-3">Godine 1820. konstruirao je diferencijalni stroj
               koji je trebao omogućiti strojno izračunavanje logaritamskih tablica.</p>
-            <p class="text-xl text-text-secondary leading-relaxed">Projekt je obustavljen nakon 15 godina i stroj nikada
+            <p class="text-xl text-text-secondary leading-relaxed mb-3">Projekt je obustavljen nakon 15 godina i stroj
+              nikada
               nije proradio, ali ideja nije izgubljena.</p>
+            <p class="text-xl text-text-secondary leading-relaxed">Babbageov rad postaje temelj za buduća računala.</p>
           </div>
-          <div class="fake-image rounded-3xl bg-white min-h-[320px] flex items-center justify-center reveal">
-            <div class="text-center">
-              <div class="text-[120px]">🏗️</div>
-              <p class="text-xl text-text-secondary px-8">Babbageov rad postaje temelj za buduća računala.</p>
-            </div>
+          <div class="rounded-3xl bg-white h-100 flex items-center justify-center reveal">
+            <img class="align-self-center h-100" src="./media/difference.jpg" alt="" srcset="">
           </div>
         </div>
       </div>
@@ -546,8 +548,8 @@
               o njemu i izrađivala programe, pa je smatraju prvom programerkom.</p>
           </div>
         </div>
-        <div class="fake-image rounded-3xl bg-white h-[180px] flex items-center justify-center mt-6 reveal">
-          <div class="text-7xl">👩‍💻</div>
+        <div class="rounded-3xl bg-white flex items-center justify-center mt-6 reveal">
+          <img class="align-self-center h-100" src="./media/Ada-analytical-engine.jpg" alt="" srcset="">
         </div>
       </div>
     </section>
@@ -571,9 +573,9 @@
               </li>
             </ul>
           </div>
-          <div class="fake-image rounded-3xl bg-white min-h-[330px] flex items-center justify-center reveal">
-            <div class="text-center">
-              <div class="text-[110px] mb-3">🗂️</div>
+          <div class="fake-image rounded-3xl bg-white flex items-center justify-center reveal">
+            <div class="text-center flex flex-column">
+              <img class="align-self-center w-75 p-8" src="./media/busene-kartice.jpg" alt="" srcset="">
               <p class="text-xl text-text-secondary px-8">Bušene kartice postaju važan medij za pohranu podataka.</p>
             </div>
           </div>
@@ -628,7 +630,7 @@
           <div class="glass rounded-3xl p-6 reveal">
             <h3 class="text-2xl font-semibold text-accent-3 mb-3">Colossus</h3>
             <p class="text-lg text-text-secondary leading-relaxed">U Engleskoj je korišten za dešifriranje poruka
-              šifriranih Enigmom i među prvima je uključivao elektronske cijevi.</p>
+              šifriranih Enigmom i među prvima je uključivao elektronske cijevi. (Alan Turing)</p>
           </div>
         </div>
       </div>
@@ -642,7 +644,7 @@
           style="width:270px;height:270px;bottom:-60px;left:-30px;background:var(--color-accent-2);opacity:.07"></div>
       </div>
       <div class="content">
-        <h2 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-bold reveal">ENIAC i von Neumann</h2>
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-bold reveal">ENIAC</h2>
         <div class="grid grid-cols-[1.1fr_.9fr] gap-8 items-center mt-8">
           <div>
             <ul class="text-2xl leading-relaxed text-text-secondary space-y-4">
@@ -650,14 +652,14 @@
                 težio je približno 30 tona i zauzimao oko 300 m².</li>
               <li class="reveal">Javnosti je predstavljen kao “elektronički mozak” i radio je iznimno brzo za svoje
                 doba.</li>
-              <li class="reveal">John von Neumann razvio je zamisao računala kojim upravlja izmjenjivi program, a
-                moderna računala i danas slijede taj model.</li>
+              <li class="reveal">Za tadašnje prilike vrlo je brzo računalo, nije bio programibilan u današnjem smislu
+              </li>
             </ul>
           </div>
           <div class="fake-image rounded-3xl bg-white min-h-[340px] flex items-center justify-center reveal">
-            <div class="text-center">
-              <div class="text-[110px] mb-3">⚡</div>
-              <p class="text-xl text-text-secondary px-8">Prijelaz prema pravim elektroničkim računalima.</p>
+            <div class="text-center flex flex-column">
+              <img class="align-self-center p-8" src="./media/ENIAC.jpg" alt="" srcset="">
+              <p class="text-xl text-text-secondary px-8 pb-8">Prijelaz prema pravim elektroničkim računalima.</p>
             </div>
           </div>
         </div>
@@ -722,18 +724,24 @@
             <h3 class="text-2xl font-semibold mb-2">Tranzistor</h3>
             <p class="text-lg text-text-secondary leading-relaxed">Smanjio je dimenzije i cijenu računala te povećao
               pouzdanost i snagu.</p>
+
+            <img class="align-self-center pt-8 fit-cover h-100" src="./media/transitor.jpeg" alt="" srcset="">
           </div>
           <div class="glass rounded-3xl p-6 reveal">
             <div class="text-5xl mb-3 text-accent-2">1958</div>
             <h3 class="text-2xl font-semibold mb-2">Integrirani krug</h3>
             <p class="text-lg text-text-secondary leading-relaxed">Više tranzistora smješteno je na jednu pločicu
               poluvodiča.</p>
+
+            <img class="align-self-center pt-8 fit-cover h-100" src="./media/int-circuit.png" alt="" srcset="">
           </div>
           <div class="glass rounded-3xl p-6 reveal">
             <div class="text-5xl mb-3 text-accent-3">1970</div>
             <h3 class="text-2xl font-semibold mb-2">Mikroprocesor</h3>
             <p class="text-lg text-text-secondary leading-relaxed">Intel 4004 označio je početak nove ere i približio
               računala široj upotrebi.</p>
+
+            <img class="align-self-center pt-8 fit-cover h-100" src="./media/microprocessor.png" alt="" srcset="">
           </div>
         </div>
       </div>
@@ -759,10 +767,20 @@
             </ul>
           </div>
           <div class="glass rounded-3xl p-8 reveal">
-            <div class="text-7xl text-glow mb-4">🖥️</div>
-            <div class="text-5xl font-extrabold stat-glow mb-3">15+</div>
-            <p class="text-xl text-text-secondary leading-relaxed">ključnih etapa i pojmova vodi od prvih mehaničkih
-              pomagala do suvremene digitalne pismenosti.</p>
+            <img class="align-self-center w-75 m-auto" src="./media/kenbak-1.png" alt="" srcset="">
+            <h3 class="text-2xl font-semibold mb-2 text-center">Kenbak-1</h3>
+          </div>
+
+
+          <div class="glass rounded-3xl p-8 reveal">
+            <img class="align-self-center fit-cover h-100" src="./media/Apple_II.png" alt="" srcset="">
+            <h3 class="text-2xl font-semibold mb-2 text-center">Apple II</h3>
+          </div>
+
+
+          <div class="glass rounded-3xl p-8 reveal">
+            <img class="align-self-center fit-cover h-100" src="./media/ZXSpectrum.png" alt="" srcset="">
+            <h3 class="text-2xl font-semibold mb-2 text-center">ZX Spectrum</h3>
           </div>
         </div>
       </div>
