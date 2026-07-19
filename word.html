@@ -48,6 +48,10 @@
       }
     }
 
+    p {
+      margin-bottom: 10px !important;
+    }
+
     .deck {
       position: relative;
       width: 100vw;
@@ -65,7 +69,9 @@
         radial-gradient(circle at top right, rgba(1, 105, 111, .08), transparent 28%),
         radial-gradient(circle at bottom left, rgba(121, 169, 167, .12), transparent 32%),
         linear-gradient(180deg, #fbfbf9 0%, #fdf8fb 100%);
-      overflow: hidden;
+      /* overflow: hidden; */
+
+      overflow-y: scroll;
     }
 
     .slide.active {
@@ -89,8 +95,8 @@
       position: relative;
       z-index: 2;
       width: min(1180px, calc(100vw - 72px));
-      height: calc(100vh - 142px);
-      margin: 46px auto;
+      min-height: calc(100vh - 142px);
+      margin: 3rem auto 5.5rem auto;
       display: grid;
       grid-template-rows: auto 1fr auto;
       gap: 22px;
@@ -175,7 +181,6 @@
       line-height: .96;
       letter-spacing: -.03em;
       margin-top: 14px;
-      max-width: 10ch;
     }
 
     .subtitle {
@@ -219,10 +224,15 @@
       transform: rotate(22deg);
     }
 
-    .word-mark {
+    .word-mark,
+    .word-mark-mini {
       font-size: 78px;
       font-weight: 800;
       line-height: 1;
+    }
+
+    .word-mark-mini {
+      font-size: 2.25rem;
     }
 
     .mini-card {
@@ -327,7 +337,7 @@
       height: 8px;
       border-radius: 999px;
       background: rgba(1, 105, 111, .12);
-      width: 220px;
+      width: 50%;
       overflow: hidden;
     }
 
@@ -470,16 +480,18 @@
           <div class="brand">
             <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">01 / 16</div>
+
+          <div class="progress"><span style="width:8%"></span></div>
+
+          <div class="index">01 / 12</div>
         </div>
         <div class="hero">
           <div class="frame reveal flex flex-column">
             <div class="eyebrow">Primjena uredskih aplikacija</div>
-            <h1 class="title">Programi za oblikovanje i obradu teksta – MS Word</h1>
+            <h1 class="title">Programi za oblikovanje i obradu teksta</h1>
             <p class="subtitle">Radno okruženje, oblikovanje i izrada profesionalnih dokumenata</p>
             <div style="margin-top:28px" class="ribbon">Ishodi učenja • sučelje • oblikovanje • dokumenti</div>
-            <img class="mx-auto w-50 modalImage" src="./media/word/word-icon.png" alt="Ikona Word tekst editora"
-              srcset="">
+            <img class="mx-auto w-50 modalImage" src="./media/word/word-icon.png" alt="Ikona Word tekst editora">
           </div>
           <div class="hero-panel reveal">
             <div>
@@ -489,8 +501,6 @@
             </div>
             <div class="mini-card mt-space-8">
               <div style="font-size:15px;font-weight:800;margin-bottom:8px;">Što učenik treba moći?</div>
-              <!-- <div style="font-size:15px;line-height:1.55;opacity:.95;">Pokrenuti Word, oblikovati tekst, uređivati
-                odlomke i stranice, raditi s tablicama, slikama te izraditi profesionalan dokument.</div> -->
 
               <ul style="font-size:15px;line-height:1.55;opacity:.95;">
                 <li>Urediti tekst, tablicu, sliku uporabom uredske aplikacije za obradu teksta prema zadanim
@@ -514,12 +524,7 @@
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Dokument od tisuću riječi započinje prvim znakom</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:6%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -528,26 +533,31 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">02 / 16</div>
+
+          <div class="progress"><span style="width:16%"></span></div>
+
+          <div class="index">02 / 12</div>
         </div>
         <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
+          <div class="reveal flex flex-column">
+
             <h2 class="section-title" style="margin-top:14px;">Što je MS Word?</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+            <p class="lead">Omogućuje izradu, uređivanje i oblikovanje dokumenata.</p>
             <ul class="points">
               <li>Microsoft Word je jedna od najčešće korištenih aplikacija za izradu i oblikovanje tekstualnih
                 dokumenata te je dio Office paketa.</li>
               <li>Dostupan je u web i desktop inačici pa se može koristiti na različitim uređajima.</li>
               <li>Koristi se za pisanje, uređivanje, spremanje, ispis i izvoz dokumenata poput dopisa, životopisa i
                 obrazaca.</li>
-              <li>Učenici imaju pravo uporabe programskog paketa <a href="https://office365.skole.hr/">Microsoft 365</a>
+              <li>Učenici imaju pravo uporabe programskog paketa <a href="https://office365.skole.hr/"
+                  target="_blank">Microsoft 365</a>
                 (bivši Office 365), a
                 jedini je uvjet da imaju važeće korisničko ime s domene @skole.hr</li>
             </ul>
+
+            <img class="mx-auto w-75 modalImage" src="./media/word/MO365.png" alt="Set alata koje nudi Microsoft 365">
           </div>
           <div class="card-grid">
             <div class="card reveal">
@@ -573,12 +583,7 @@
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:12%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -587,16 +592,19 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">03 / 16</div>
+
+          <div class="progress"><span style="width:25%"></span></div>
+
+          <div class="index">03 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal flex flex-column">
-            <div class="ribbon">MS Word modul</div>
+
             <h2 class="section-title" style="margin-top:14px;">Pokretanje i sučelje</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+            <p class="lead">Rad u sučelju znači otvoriti program te se snalaziti na <span class="primary">vrpci
+                (Ribbonu)</span></p>
             <ul class="points">
               <li>Na računalu se Word pokreće pretraživanjem aplikacije u Windowsu, a web inačica otvara se prijavom u
                 Microsoft 365.</li>
@@ -606,7 +614,7 @@
             </ul>
 
             <img class="mx-auto w-100 mt-space-8 modalImage" src="./media/word/sucelje.png"
-              alt="Početno sučelje praznog Word dokumenta" srcset="">
+              alt="Početno sučelje praznog Word dokumenta">
           </div>
           <div class="card-grid">
             <div class="card reveal">
@@ -616,23 +624,18 @@
                 datoteku koju želimo otvoriti i dodatno urediti.</p>
 
               <img class="mx-auto w-100 mt-space-4 modalImage contain-250" src="./media/word/open.png"
-                alt="Otvaranje dokumenta iz sučelja aplikacije" srcset="">
+                alt="Otvaranje dokumenta iz sučelja aplikacije">
             </div>
             <div class="card reveal">
               <h3>Kreiranje nove datoteke</h3>
               <p>Potrebno je iz aplikacije odabrati kraticu Datoteka i odabrati opciju novo, nakon čeka odabiremo
                 željeni predložak.</p>
               <img class="mx-auto w-100 mt-space-4 modalImage contain-250" src="./media/word/new.png"
-                alt="Kreiranje novog dokumenta" srcset="">
+                alt="Kreiranje novog dokumenta">
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:18%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -641,27 +644,30 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">04 / 16</div>
+
+          <div class="progress"><span style="width:32%"></span></div>
+
+          <div class="index">04 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal flex flex-column">
-            <div class="ribbon">MS Word modul</div>
+
             <h2 class="section-title" style="margin-top:14px;">Radno okruženje</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+            <p class="lead">Prozor programa u kojem vidimo naslovnu traku, vrpcu s alatima, ravnala, radnu površinu
+              dokumenta i statusnu traku.</p>
             <ul class="points">
               <li>Upisani tekst oblikujemo i uređujemo koristeći alate iz izbornika, odnosno kartica. Na svakoj kartici
                 nalaze se alati organizirani u grupe</li>
               <li>Kartica Polazno sadrži osnovne alate za font, odlomak, stilove i međuspremnik.</li>
-              <li>Raspored služi za margine, usmjerenje stranice i veličinu papira.</li>
+              <li>Raspored služi za margine, usmjerenje straniceOblikovanje znakova i veličinu papira.</li>
               <li>Umetanje se koristi za tablice, slike, brojeve stranica, tekstne okvire i druge elemente dokumenta.
               </li>
             </ul>
 
             <img class="mx-auto w-100 mt-space-8 modalImage" src="./media/word/polazno.png"
-              alt="Izbornik polazno sa svim svojim kraticama" srcset="">
+              alt="Izbornik polazno sa svim svojim kraticama">
           </div>
           <div class="card-grid">
             <div class="card reveal">
@@ -695,16 +701,11 @@
               </ul>
 
               <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/navigation-pane.png"
-                alt="Izbornik polazno sa svim svojim kraticama" srcset="">
+                alt="Izbornik polazno sa svim svojim kraticama">
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:25%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -713,16 +714,19 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">05 / 16</div>
+
+          <div class="progress"><span style="width:40%"></span></div>
+
+          <div class="index">05 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal flex flex-column">
-            <div class="ribbon">MS Word modul</div>
+
             <h2 class="section-title" style="margin-top:14px;">Oblikovanje znakova</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+            <p class="lead">Znači mijenjanje izgleda pojedinih slova i riječi kako bi se istaknuo važan tekst.
+            </p>
             <ul class="points">
               <li>Osnovne funkcije oblikovanja znakova su podebljano, kurziv, podcrtano, boja i veličina fonta.</li>
               <li>Različiti fontovi imaju različit vizualni dojam pa treba razlikovati serifne, bezserifne i dekorativne
@@ -735,10 +739,10 @@
               <h3>Oblikovanje fonta</h3>
               <p>Na kartici <span class="primary italic">Polazno</span> treba odabrati grupu <span
                   class="primary italic">Font</span> te proširiti izbornike za odabir vrste i veličine fonta kako bismo
-                odabrali željenu veličinu i vrstu fonta. Alati za promjenu veličine i vrste fonta.</p>
+                odabrali željenu veličinu i vrstu fonta.</p>
 
               <img class="mx-auto mt-space-8 modalImage w-100" src="./media/word/font.png"
-                alt="Kratica za uređivanje znaka i odabir fonta" srcset="">
+                alt="Kratica za uređivanje znaka i odabir fonta">
             </div>
 
           </div>
@@ -746,11 +750,12 @@
             <div class="card reveal">
               <h3>Stilovi</h3>
               <p>Ugrađene stilove koristimo za brzu primjenu preddefiniranog oblikovanja dosljedno u cijelom
-                dokumentu. Odabir stila utjecat će na oblikovanje kao što su veličina fonta, boja i uvlaka teksta. Svaki
+                dokumentu.</p>
+              <p>Odabir stila utjecat će na oblikovanje kao što su veličina fonta, boja i uvlaka teksta. Svaki
                 postojeći stil moguće je izmijeniti i prilagoditi ga svojim potrebama.</p>
 
               <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/stilovi.png"
-                alt="Kratica sa stilovima" srcset="">
+                alt="Kratica sa stilovima">
             </div>
 
             <div class="card reveal">
@@ -774,12 +779,183 @@
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:43%"></span></div>
+
+      </div>
+    </div>
+
+    <div class="slide slide-6" data-slide="6">
+      <div class="pattern"></div>
+      <div class="content">
+        <div class="frame topbar reveal">
+          <div class="brand">
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
+          </div>
+
+          <div class="progress"><span style="width:48%"></span></div>
+
+          <div class="index">06 / 12</div>
+        </div>
+        <div class="frame main">
+          <div class="reveal flex flex-column">
+
+            <h2 class="section-title" style="margin-top:14px;">Oblikovanje odlomaka</h2>
+            <p class="lead">Podešavanje poravnanja, uvlaka, razmaka između redaka i odlomaka kako bi tekst bio pregledan
+              i jasno strukturiran.
+            </p>
+            <ul class="points">
+              <li>Word omogućuje lijevo, desno, centrirano i obostrano poravnanje teksta.</li>
+              <li>Važni su uvlake, razmak između redaka i razmak između odlomaka jer utječu na preglednost.</li>
+              <li>Numerirani i nabrojani popisi pomažu u strukturiranju informacija i jasnijem prikazu sadržaja.</li>
+            </ul>
+
+            <div class="card reveal mt-space-8">
+              <h3>Popisi</h3>
+              <p><span class="primary bold">Numerirani</span> (1., 2., 3.) i <span class="primary bold">nabrojani</span>
+                ( • ) popisi služe za strukturiranje informacija
+                tako da se važne stavke izdvoje iz teksta.</p>
+              <p>Nabrojeni (bulleted) popis koristimo kada redoslijed nije
+                bitan, primjerice za navođenje značajki, pojmova ili primjera.</p>
+              <p>Numerirani popis primjenjujemo kad je redoslijed važan, npr. kod koraka u postupku, uputa ili zadataka
+                koji se izvode jednim slijedom.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/lists.jpg"
+                alt="Odabir izgleda liste">
+            </div>
+          </div>
+          <div class="card-grid">
+
+            <div class="card reveal">
+              <h3>Poravnanje teksta</h3>
+              <p>Poravnanje teksta određuje izgled i usmjerenje rubova odlomka.</p>
+              <p>Na kartici <span class="primary italic">Polazno</span> grupa <span
+                  class="primary italic">Odlomak</span> i odaberemo željeno poravnanje.</p>
+              <p>Ako želimo
+                poravnati prethodno napisani tekst, tada je potrebno označiti željeni dio teksta kojeg želimo
+                poravnati.</p>
+
+              <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/poravnavanje.png"
+                alt="Kartica za upravljanje odlomkom, poravnavanje teksta ">
+            </div>
+
+            <div class="card reveal">
+              <h3>Prored</h3>
+              <p>U grupi Odlomak također se nalazi i alat za određivanje proreda između redaka teksta, odnosno proreda
+                između odlomaka.</p>
+              <p>Najčešće mijenjamo preko naredbe <span class="primary italic">Line and Paragraph Spacing</span> na
+                kartici <span class="primary ialic">Home</span>, gdje mogu brzo
+                odabrati npr. 1,0, 1,15, 1,5 ili 2,0, a detaljnije postavke dostupne su u dijaloškom okviru <span
+                  class="primary italic">Paragraph
+                  (Indents and Spacing)</span>. </p>
+
+              <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/prored.png"
+                alt="Kartica za upravljanje odlomkom, upravljanje proredom ">
+            </div>
           </div>
         </div>
+
+      </div>
+    </div>
+
+    <div class="slide slide-7" data-slide="7">
+      <div class="pattern"></div>
+      <div class="content">
+        <div class="frame topbar reveal">
+          <div class="brand">
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
+          </div>
+
+          <div class="progress"><span style="width:56%"></span></div>
+
+          <div class="index">07 / 12</div>
+        </div>
+        <div class="frame main">
+          <div class="reveal flex flex-column">
+
+            <h2 class="section-title" style="margin-top:14px;">Oblikovanje stranice</h2>
+            <p class="lead">Podešavanje veličine papira, margina i orijentacije kako bi dokument bio pravilno
+              pripremljen za čitanje i ispis.</p>
+            <ul class="points">
+              <li>Postavke stranice uključuju margine, veličinu papira i orijentaciju stranice: portretnu ili pejzažnu.
+              </li>
+              <li>Za profesionalan izgled koriste se zaglavlja, podnožja i brojevi stranica.</li>
+              <li>Odabir pravilnog rasporeda ovisi o namjeni dokumenta, primjerice pismo, izvještaj ili obrazac.</li>
+            </ul>
+
+            <div class="card-grid">
+              <div class="card reveal mt-space-4">
+                <h3>Umetanje broja stranice</h3>
+                <p>Broj stranice umeće se putem kartice Umetanje > Broj stranice te se odabere položaj na kojemu ga
+                  želimo prikazati (vrh, dno ili margina stranice te trenutni položaj na kojemu se nalazi pokazivač miša
+                  u dokumentu).</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/umetanje-broj.png"
+                  alt="Upravlja se opcijom Broj stranice">
+              </div>
+
+              <div class="card reveal mt-space-4">
+                <h3>Obrub stranice</h3>
+                <p>Obrub stranice umećemo tako da na kartici <span class="primary italic">Dizajn</span>, u skupini
+                  <span class="primary italic">Pozadina stranice</span> odaberemo alat
+                  <span class="primary italic">Obrubi stranice</span>.
+                </p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/obrub.png"
+                  alt="Kratica za odabir obruba stranice">
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/odabir-obruba.png"
+                  alt="Prozor za odabir željenog obruba">
+              </div>
+
+              <div class="card reveal mt-space-4">
+                <h3>Boja pozadine stranice</h3>
+                <p>Na alatnoj kartici odabiremo alat <span class="primary italic">Boja stranice</span> te iz padajućeg
+                  izbornika odaberemo željenu boju pozadine</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/background.png"
+                  alt="Alatna traka za odabir boje sranice">
+              </div>
+
+            </div>
+
+          </div>
+          <div class="card-grid">
+            <div class="card reveal">
+              <h3>Margine</h3>
+              <p>Margine označavaju područje između glavnog sadržaja stranice i rubova stranice te pomažu definirati
+                gdje red teksta počinje, odnosno gdje završava.</p>
+              <p>Moguće je prilagoditi ili odabrati unaprijed definirane postavke margina, kao i promijeniti način
+                mjerenja margina.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/margin.png"
+                alt="Kartica za upravljanje marginom">
+            </div>
+
+            <div class="card reveal">
+              <h3>Usmjerenje stranice i veličina papira</h3>
+              <p>Na kartici <span class="primary italic">Raspored</span> u grupi <span
+                  class="primary italic">Postavljanje stranice</span> nalaze i alati za izmjenu usmjerenja
+                stranice ( <span class="italic">Vodoravno i Okomito</span> ).</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/usmjerenje.png"
+                alt="Kartica za upravljanje usmjerenjem stranice">
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/velicina.png"
+                alt="Kartica za upravljanje veličinom stranice">
+            </div>
+
+            <div class="card reveal">
+              <h3>Vodeni žig</h3>
+              <p>U alatnoj kartici <span class="primary italic">Dizajn</span> nalazi se i alat za umetanje vodenog žiga
+                na stranicu.</p>
+              <p>Odabrati možemo unaprijed definirani vodeni žig, prilagođeni ili vodeni žig s interneta.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/watermark.png"
+                alt="Odabir vodenog žiga za našu stranicu">
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -788,49 +964,82 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">08 / 16</div>
+
+          <div class="progress"><span style="width:64%"></span></div>
+
+          <div class="index">08 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Oblikovanje odlomaka</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+
+            <h2 class="section-title" style="margin-top:14px;">Tablice i okviri</h2>
+            <p class="lead">Služe za pregledno organiziranje informacija: tablice raspoređuju podatke u retke i stupce,
+              a tekstni okviri izdvajaju važan tekst u posebne "kutije" unutar dokumenta.</p>
             <ul class="points">
-              <li>Word omogućuje lijevo, desno, centrirano i obostrano poravnanje teksta.</li>
-              <li>Važni su uvlake, razmak između redaka i razmak između odlomaka jer utječu na preglednost.</li>
-              <li>Numerirani i nabrojani popisi pomažu u strukturiranju informacija i jasnijem prikazu sadržaja.</li>
+              <li>U Wordu je moguće stvarati i brisati tablice te razlikovati retke, stupce i ćelije.</li>
+              <li>Mogu se mijenjati veličine redaka i stupaca, spajati ćelije te dodavati boje, obrubi i stilovi
+                tablica.</li>
+              <li>Tekstualni okviri služe za naglašavanje sadržaja i mogu se prilagoditi položajem, veličinom i obrubom.
+              </li>
             </ul>
+
+            <div class="card-grid">
+              <div class="card reveal mt-space-4">
+                <h3>Umetanje tablice</h3>
+                <p>Odabiremo karticu <span class="primary italic">Umetanje</span> te alat <span
+                    class="primary italic">Tablica</span>.</p>
+                <p>Osnovnu tablicu umećemo pomicanjem pokazivača miša po rešetki dok ne označimo željeni broj
+                  stupaca i redaka.</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/table.png"
+                  alt="Odabiremo veličinu tablice koju želimo umetnuti u dokuemnt">
+              </div>
+
+              <div class="card reveal mt-space-4">
+                <h3>Spajanje ćelija</h3>
+                <p>Ćelije unutar tablice možemo spajati.</p>
+                <p>Označimo ćelije koje želimo spojiti, a nakon toga na označenim ćelijama pritisnemo desnu tipku miša
+                  kako
+                  bismo iz skočnog izbornika odabrali opciju <span class="primary italic">Spoji ćelije</span>.</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/spajanje-celija.png"
+                  alt="Prikaz opcija za spajanje ćelija">
+              </div>
+
+            </div>
+
           </div>
           <div class="card-grid">
             <div class="card reveal">
-              <h3>Poravnanje teksta</h3>
-              <p>Poravnanje teksta određuje izgled i usmjerenje rubova odlomka</p>
+              <h3>Umetanje retka i stupca u tablicu</h3>
+              <p>Retke i stupce možemo umetnuti u već postojeću tablicu.</p>
+              <p>Za retke – postavimo pokazivač miša s lijeve strane tablice, pritisnemo +.</p>
+              <p>Za stupce - postavimo pokazivač miša iznad tablice, pritisnemo +.</p>
 
-              <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/poravnavanje.png"
-                alt="Kartica za upravljanje odlomkom, poravnavanje teksta " srcset="">
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/redak.png"
+                alt="Odabiremo umetanje dodatnog retka">
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/stupac.png"
+                alt="Odabiremo umetanje dodatnog stupca">
             </div>
-            <div class="card reveal">
-              <h3>Prored</h3>
-              <p>U grupi Odlomak također se nalazi i alat za određivanje proreda između redaka teksta, odnosno proreda između odlomaka.</p>
 
-              <img class="mx-auto mt-space-8 modalImage contain-250" src="./media/word/prored.png"
-                alt="Kartica za upravljanje odlomkom, upravljanje proredom " srcset="">
-            </div>
             <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Numerirani i nabrojani popisi pomažu u strukturiranju informacija i jasnijem prikazu sadržaja.</p>
+              <h3>Bojenje retka u tablici</h3>
+              <p>Redak u tablici kojeg želimo obojati, odnosno osjenčati najprije trebamo označiti.</p>
+              <p>Iz skočnog izbornika odaberemo alat <span class="primary italic">Sjenčanje</span> te željenu boju iz
+                palete.</p>
+              <p>Alat <span class="primary italic">Sjenčanje</span> možemo, osim u skočnom izborniku, pronaći i na
+                kartici <span class="primary italic">Polazno</span>, u grupi alata <span
+                  class="primary italic">Odlomak</span>.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/row-color.png"
+                alt="Odabiremo bojanje redka u tablici">
             </div>
+
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:50%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -839,50 +1048,81 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
+
+          <div class="progress"><span style="width:72%"></span></div>
+
           <div class="index">09 / 16</div>
         </div>
         <div class="frame main">
           <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Oblikovanje stranice</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+
+            <h2 class="section-title" style="margin-top:14px;">Slike i grafike</h2>
+            <p class="lead">Kažu da slika vrijedi tisuću riječi.</p>
             <ul class="points">
-              <li>Postavke stranice uključuju margine, veličinu papira i orijentaciju stranice: portretnu ili pejzažnu.
-              </li>
-              <li>Za profesionalan izgled koriste se zaglavlja, podnožja i brojevi stranica.</li>
-              <li>Odabir pravilnog rasporeda ovisi o namjeni dokumenta, primjerice pismo, izvještaj ili obrazac.</li>
+              <li>U dokument se mogu umetnuti slike, ikone, SmartArt, grafikoni i oblici.</li>
+              <li>Grafičkim elementima moguće je promijeniti veličinu, položaj, obrezivanje i osnovne efekte.</li>
+              <li>Tekstni omot, poravnanje te naslovi i opisi pomažu da vizualni sadržaj bude jasan i usklađen sa svrhom
+                dokumenta.</li>
             </ul>
+
+            <div class="card-grid">
+              <div class="card reveal mt-space-4">
+                <h3>Umetanje slike</h3>
+                <ul>
+                  <li class="primary italic">Umetanje > Slike > Ovaj uređaj (slika pohranjena na računalu)</li>
+                  <li class="primary italic">Umetanje > Slike > Slike za kupnju (slike visoke kvalitete)</li>
+                  <li class="primary italic">Umetanje > Slike > Slike s interneta</li>
+                </ul>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/picture.png"
+                  alt="Alat za umetanje slika u dokument ovisno od slike">
+              </div>
+
+              <div class="card reveal mt-space-4">
+                <h3>Umetanje grafikona</h3>
+                <p>Grafikon umećemo preko kartice <span class="primary italic">Insert (Umetanje)</span> i naredbe <span
+                    class="primary italic">Chart</span>, gdje biramo vrstu grafikona.</p>
+                <p>Otvara mala proračunska tablica u koju upisujemo vlastite podatke</p>
+                <p>Nakon umetanja možemo dodati naslov, legende, oznake podataka, promijeniti boje i stil grafikona.</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/chart.png"
+                  alt="Dodavanje grafikona u dokumente">
+              </div>
+
+            </div>
           </div>
           <div class="card-grid">
             <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Postavke stranice uključuju margine, veličinu papira i orijentaciju stranice: portretnu ili pejzažnu.
+              <h3>Manipulacija slike</h3>
+              <p>Umetnutoj slici možemo mijenjati veličinu i položaj.</p>
+              <p>Kako bismo promijenili veličinu slike, odaberemo sliku i povučemo kutnu ručicu.</p>
+              <p>Da bismo prelomili tekst oko slike, odaberite sliku, a zatim odaberite mogućnost prelamanja teksta
+                oko slike.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/image-manipulation.png"
+                alt="Manipulacija veličine i položaja slike">
+            </div>
+
+            <div class="card reveal">
+              <h3>Unos formula</h3>
+              <p>U dokument možemo umetati i matematičke jednadžbe, odnosno formule.</p>
+              <p>U kartici <span class="primary italic">Umetanje</span> pronađemo grupu <span
+                  class="primary italic">Simboli</span> te odaberemo alat <span class="primary italic">Jednadžba</span>.
               </p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Za profesionalan izgled koriste se zaglavlja, podnožja i brojevi stranica.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Odabir pravilnog rasporeda ovisi o namjeni dokumenta, primjerice pismo, izvještaj ili obrazac.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
+              <p>Umetnemo željenu jednadžbu ili pišemo vlastitu, korištenjem mogućnosti <span
+                  class="primary italic">Umetni novu jednadžbu</span> ili
+                <span class="primary italic">Rukopisna jednadžba</span> .
               </p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/formula.png"
+                alt="Kreiranje i unošenje formula u dokumente">
             </div>
+
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:56%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -891,52 +1131,90 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">10 / 16</div>
+
+          <div class="progress"><span style="width:80%"></span></div>
+
+          <div class="index">10 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Tablice i okviri</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+
+            <h2 class="section-title" style="margin-top:14px;">Službeni dopis</h2>
+            <p class="lead">Formalno pismo jasno zadane strukture koje službeno prenosi informacije između osoba ili
+              ustanova.</p>
             <ul class="points">
-              <li>U Wordu je moguće stvarati i brisati tablice te razlikovati retke, stupce i ćelije.</li>
-              <li>Mogu se mijenjati veličine redaka i stupaca, spajati ćelije te dodavati boje, obrubi i stilovi
-                tablica.</li>
-              <li>Tekstualni okviri služe za naglašavanje sadržaja i mogu se prilagoditi položajem, veličinom i obrubom.
-              </li>
+              <li>Službeni dopis treba sadržavati zaglavlje, datum, adresu primatelja, predmet, glavni tekst, pozdrav i
+                potpis.</li>
+              <li>Treba razlikovati zamolbu, obavijest i službeni dopis te odabrati prikladan ton i stil.</li>
+              <li>Dokument mora biti čitljiv, pravilno strukturiran i profesionalno oblikovan.</li>
             </ul>
+
+            <div class="card-grid">
+              <div class="card reveal mt-space-4">
+                <h3>Provjera pravopisa</h3>
+                <p>Najbrži način pokretanja alata <span class="primary italic">Redaktor</span> za provjeru pravopisa (i
+                  gramatike) u dokumentu je
+                  da pritisnete funkcijsku tipku F7 na tipkovnici. </p>
+                <p>Do alata <span class="primary italic">Redaktor</span> možete doći i odabirom kartice <span
+                    class="primary italic">Pregled</span>.</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/redactor.png"
+                  alt="Alat za provjeru pravopisa i gramatike">
+              </div>
+
+              <div class="card reveal mt-space-4">
+                <h3>Umetanje zaglavljai podnožja</h3>
+                <p><span class="primary italic">Header (zaglavlje)</span> i <span class="primary italic">footer
+                    (podnožje)</span> su posebna područja na vrhu i dnu svake stranice gdje
+                  se smješta ponavljajuća informacija koja treba biti vidljiva kroz cijeli dokument.</p>
+                <p>U njih se najčešće upisuju naslov dokumenta, ime autora, naziv poglavlja, datum i brojevi stranica
+                  ili se umeće logotip škole / poduzeća, čime dokument dobiva profesionalniji i pregledniji izgled.</p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/header.png"
+                  alt="Alat za umetanje zaglavlja">
+              </div>
+
+            </div>
+
           </div>
           <div class="card-grid">
             <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>U Wordu je moguće stvarati i brisati tablice te razlikovati retke, stupce i ćelije.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Mogu se mijenjati veličine redaka i stupaca, spajati ćelije te dodavati boje, obrubi i stilovi tablica.
+              <h3>Umetanje tablice sadržaja</h3>
+              <p>Tablica sadržaja u aplikaciji Word temelji se na naslovima u dokumentu.</p>
+              <p>Pokazivač miša postavljamo na mjesto na kojem želimo dodati tablicu sadržaja, a zatim odabiremo karticu
+                <span class="primary italic">Reference > Tablic</span>a sadržaja te odabiremo automatski stil.
               </p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/table-content.png"
+                alt="Umetanje tablice sadžaja">
+
+              <p class="mt-space-8">Ako u dokument unesete promjene koje utječu na tablicu sadržaja, ažurirajte tablicu
+                sadržaja tako da
+                desnom tipkom miša kliknete tablicu sadržaja, a zatim odaberete <span class="primary italic">Ažuriraj
+                  tablicu</span>.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/table-content-update.png"
+                alt="naknadno ažuriranje tablice sadržaja">
             </div>
+
             <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Tekstualni okviri služe za naglašavanje sadržaja i mogu se prilagoditi položajem, veličinom i obrubom.
-              </p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
+              <h3>Umetanje fusnota</h3>
+              <p>Fusnotu u tekst umećemo tako da kliknemo mjesto na kojemu želimo referencu na fusnotu, a zatim
+                na kartici <span class="primary italic">Reference</span> odaberemo <span class="primary italic">Umetni
+                  fusnotu</span> te upišemo tekst koji želimo.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/fusnote-add.png"
+                alt="Umetanje funoste u dokument">
+
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/fusnote-example.png"
+                alt="Primjer fusnote dokumentu">
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:62%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -945,50 +1223,64 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">11 / 16</div>
+
+          <div class="progress"><span style="width:88%"></span></div>
+
+          <div class="index">11 / 12</div>
         </div>
         <div class="frame main">
           <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Slike, grafike i raspored</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
+
+            <h2 class="section-title" style="margin-top:14px;">Ispis i izvoz u PDF</h2>
+            <p class="lead">Spremanje dokumenta u PDF formatu gotovo uvijek isto izgleda prilikom printa.</p>
             <ul class="points">
-              <li>U dokument se mogu umetnuti slike, ikone, SmartArt, grafikoni i oblici.</li>
-              <li>Grafičkim elementima moguće je promijeniti veličinu, položaj, obrezivanje i osnovne efekte.</li>
-              <li>Tekstni omot, poravnanje te naslovi i opisi pomažu da vizualni sadržaj bude jasan i usklađen sa svrhom
-                dokumenta.</li>
+              <li>Gotov dokument treba pohraniti u odgovarajućem formatu kao što su .docx, .odt ili .pdf.</li>
+              <li>Izvoz u PDF radi se opcijom Spremi kao PDF ili Izvoz u PDF.</li>
+              <li>Prije ispisa treba provjeriti pisač, veličinu papira, orijentaciju stranice i pregled dokumenta.</li>
             </ul>
+            <div class="card-grid">
+              <div class="card reveal mt-space-4">
+                <h3>Spremanje dokumenta</h3>
+                <p>Otvorite karticu <span class="primary italic">Datoteka</span>, odaberite opciju <span
+                    class="primary italic">Spremi kao > Pregledaj</span> i odaberite mjesto na lokalnom
+                  računalu gdje želite spremiti datoteku.</p>
+                <p>Svaka sljedeća izmjena ili dopuna na dokumentu može se spremiti korištenjem tipkovničkih prečaca
+                  <span class="primary italic">Ctrl + S</span> ili odabirom opcije spremanja u kartici <span
+                    class="primary italic">Datoteka > Spremi</span>.
+                </p>
+
+                <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/save.png"
+                  alt="Spremanje dokumenata">
+              </div>
+            </div>
+
           </div>
           <div class="card-grid">
             <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>U dokument se mogu umetnuti slike, ikone, SmartArt, grafikoni i oblici.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Grafičkim elementima moguće je promijeniti veličinu, položaj, obrezivanje i osnovne efekte.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Tekstni omot, poravnanje te naslovi i opisi pomažu da vizualni sadržaj bude jasan i usklađen sa svrhom
-                dokumenta.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
+              <h3>Pohrana u PDF obliku</h3>
+              <p>Možeš koristiti i <span class="primary italic">File > Export > Create PDF/XPS </span> ili u Wordu za
+                web
+                <span class="primary italic">File > Export >
+                  Download as PDF</span>, čime brzo dobiješ gotovu PDF datoteku spremnu za dijeljenje ili ispis.
               </p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/export.png"
+                alt="Spremanje dokumenata u PDF formatu">
+            </div>
+            <div class="card reveal">
+              <h3>Ispis dokumenta</h3>
+              <p>Koristi se naredbu <span class="primary italic">File > Print</span>, koja otvara tzv. <span
+                  class="primary italic">Print/Backstage</span> prikaz s postavkama ispisa i pregledom stranica.</p>
+              <p>Također možemo koristiti i kraticu na tipkovnici <span class="primary italic">Ctrl + P</span>.</p>
+
+              <img class="mx-auto mt-space-4 modalImage contain-250" src="./media/word/download.png"
+                alt="Opcije za printanje dokumenta">
             </div>
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:68%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -997,252 +1289,68 @@
       <div class="content">
         <div class="frame topbar reveal">
           <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
+            <div class="logo">W</div><span>Obrada teksta • MS Word</span>
           </div>
-          <div class="index">12 / 16</div>
-        </div>
-        <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Službeni dopis</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
-            <ul class="points">
-              <li>Službeni dopis treba sadržavati zaglavlje, datum, adresu primatelja, predmet, glavni tekst, pozdrav i
-                potpis.</li>
-              <li>Treba razlikovati zamolbu, obavijest i službeni dopis te odabrati prikladan ton i stil.</li>
-              <li>Dokument mora biti čitljiv, pravilno strukturiran i profesionalno oblikovan.</li>
-            </ul>
-          </div>
-          <div class="card-grid">
-            <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Službeni dopis treba sadržavati zaglavlje, datum, adresu primatelja, predmet, glavni tekst, pozdrav i
-                potpis.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Treba razlikovati zamolbu, obavijest i službeni dopis te odabrati prikladan ton i stil.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Dokument mora biti čitljiv, pravilno strukturiran i profesionalno oblikovan.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:75%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide slide-13" data-slide="13">
-      <div class="pattern"></div>
-      <div class="content">
-        <div class="frame topbar reveal">
-          <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
-          </div>
-          <div class="index">13 / 16</div>
-        </div>
-        <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Životopis i motivacijsko pismo</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
-            <ul class="points">
-              <li>Životopis obično sadrži osobne podatke, obrazovanje, radno iskustvo, vještine i kompetencije.</li>
-              <li>Motivacijsko pismo ima uvod, glavni dio, zaključak i poziv na kontakt.</li>
-              <li>Sadržaj i oblikovanje treba prilagoditi konkretnoj poziciji kako bi dokument bio pregledan i
-                uvjerljiv.</li>
-            </ul>
-          </div>
-          <div class="card-grid">
-            <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Životopis obično sadrži osobne podatke, obrazovanje, radno iskustvo, vještine i kompetencije.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Motivacijsko pismo ima uvod, glavni dio, zaključak i poziv na kontakt.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Sadržaj i oblikovanje treba prilagoditi konkretnoj poziciji kako bi dokument bio pregledan i uvjerljiv.
-              </p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:81%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <div class="progress"><span style="width:100%"></span></div>
 
-    <div class="slide slide-14" data-slide="14">
-      <div class="pattern"></div>
-      <div class="content">
-        <div class="frame topbar reveal">
-          <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
-          </div>
-          <div class="index">14 / 16</div>
+          <div class="index">12 / 12</div>
         </div>
-        <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Karton klijenata i obrasci</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
-            <ul class="points">
-              <li>Kartoni klijenata služe za sustavno vođenje osobnih i kontaktnih podataka te poslovnih bilješki.</li>
-              <li>Obrazac treba imati naslov, polja za podatke, bilješke i tablični prikaz informacija.</li>
-              <li>Poravnanje, obrubi, sjenčanje i tablice pomažu da obrazac bude uredan, čitljiv i profesionalan.</li>
-            </ul>
-          </div>
-          <div class="card-grid">
-            <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Kartoni klijenata služe za sustavno vođenje osobnih i kontaktnih podataka te poslovnih bilješki.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Obrazac treba imati naslov, polja za podatke, bilješke i tablični prikaz informacija.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Poravnanje, obrubi, sjenčanje i tablice pomažu da obrazac bude uredan, čitljiv i profesionalan.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:87%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide slide-15" data-slide="15">
-      <div class="pattern"></div>
-      <div class="content">
-        <div class="frame topbar reveal">
-          <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
-          </div>
-          <div class="index">15 / 16</div>
-        </div>
-        <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Ispis i izvoz u PDF</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
-            <ul class="points">
-              <li>Gotov dokument treba pohraniti u odgovarajućem formatu kao što su .docx, .odt ili .pdf.</li>
-              <li>Izvoz u PDF radi se opcijom Spremi kao PDF ili Izvoz u PDF.</li>
-              <li>Prije ispisa treba provjeriti pisač, veličinu papira, orijentaciju stranice i pregled dokumenta.</li>
-            </ul>
-          </div>
-          <div class="card-grid">
-            <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Gotov dokument treba pohraniti u odgovarajućem formatu kao što su .docx, .odt ili .pdf.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Izvoz u PDF radi se opcijom Spremi kao PDF ili Izvoz u PDF.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Prije ispisa treba provjeriti pisač, veličinu papira, orijentaciju stranice i pregled dokumenta.</p>
-            </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:93%"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <div class="hero">
+          <div class="frame reveal flex flex-column">
+            <div class="eyebrow">Primjena uredskih aplikacija</div>
+            <h1 class="title">Zanimljivosti</h1>
+            <p class="subtitle">Interesantne stvari o Wordu</p>
 
-    <div class="slide slide-16" data-slide="16">
-      <div class="pattern"></div>
-      <div class="content">
-        <div class="frame topbar reveal">
-          <div class="brand">
-            <div class="logo">W</div><span>Programi za oblikovanje i obradu teksta</span>
-          </div>
-          <div class="index">16 / 16</div>
-        </div>
-        <div class="frame main">
-          <div class="reveal">
-            <div class="ribbon">MS Word modul</div>
-            <h2 class="section-title" style="margin-top:14px;">Provjera kvalitete dokumenta</h2>
-            <p class="lead">Pregled ključnih znanja i vještina koje učenik treba prepoznati, razumjeti i primijeniti u
-              radu s dokumentima.</p>
             <ul class="points">
-              <li>Potrebno je procijeniti točnost, urednost, čitljivost i vizualni dojam dokumenta.</li>
-              <li>Oblikovanje treba služiti jasnoj komunikaciji, a ne samo ukrasu.</li>
-              <li>Dobro oblikovan dokument djeluje profesionalno, pregledan je i prilagođen svojoj namjeni.</li>
+              <li>Prva verzija Microsoft Worda, nazvana Word 1.0, puštena je u prodaju 1983. godine za operacijski
+                sustav MS-DOS. Od tada, Word je postao jedna od najpopularnijih aplikacija za obradu teksta na
+                svijetu.</li>
+              <li>Word je bio jedan od prvih programa za obradu teksta koji je uveo koncept <span
+                  class="primary italic">WYSIWYG (engl. What
+                  You See Is What You Get)</span>, što znači da je na ekranu prikazivao tekst i formatiranje onako kako
+                će izgledati na ispisu.</li>
+              <li>Word 2019 i kasnije verzije koriste umjetnu inteligenciju za poboljšanje pravopisne i gramatičke
+                provjere te za prijedloge za bolje rečenice, što poboljšava kvalitetu pisanja.</li>
+              <li>Word omogućuje izvoz dokumenata u PDF format i obrnuto. Ovo je korisno za dijeljenje dokumenata
+                s drugima bez rizika od nepoželjnih izmjena.</li>
+              <li>Word podržava rad s više jezika. Možete provoditi provjeru pravopisa i gramatike na više jezika i
+                prevesti dokumente između jezika.</li>
             </ul>
           </div>
-          <div class="card-grid">
-            <div class="card reveal">
-              <h3>Ključna ideja</h3>
-              <p>Potrebno je procijeniti točnost, urednost, čitljivost i vizualni dojam dokumenta.</p>
+          <div class="hero-panel reveal">
+            <div>
+              <div style="font-size:14px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;">Digitalna pismenost
+              </div>
+              <div class="word-mark-mini">Danas</div>
             </div>
-            <div class="card reveal">
-              <h3>Primjena u praksi</h3>
-              <p>Oblikovanje treba služiti jasnoj komunikaciji, a ne samo ukrasu.</p>
+            <div class="mini-card mt-space-8">
+              <div style="font-size:15px;font-weight:800;margin-bottom:8px;">Najpoznatije kratice</div>
+              <ul style="font-size:15px;line-height:1.55;opacity:.95;">
+                <li>Ctrl + S (spremi)</li>
+                <li>Ctrl + C (kopiraj)</li>
+                <li>Ctrl + V (zalijepi)</li>
+                <li>Ctrl + Z (poništi)</li>
+                <li>Postoje i kratice za podebljano, kurziv, podcrtano i poravnanja teksta.</li>
+              </ul>
             </div>
-            <div class="card reveal">
-              <h3>Zašto je važno</h3>
-              <p>Dobro oblikovan dokument djeluje profesionalno, pregledan je i prilagođen svojoj namjeni.</p>
+
+            <div class="mini-card mt-space-8">
+              <div style="font-size:15px;font-weight:800;margin-bottom:8px;">Word na više od milijardu uređaja</div>
+              <p>Procjenjuje se da Word danas radi na više od milijardu uređaja širom svijeta i da je najrašireniji
+                program za obradu teksta.</p>
             </div>
-            <div class="card reveal">
-              <h3>Procjena i kvaliteta</h3>
-              <p>Učenik treba procijeniti čitljivost, urednost, prikladnost oblikovanja i profesionalni dojam dokumenta.
-              </p>
+
+            <div class="mini-card mt-space-8">
+              <div style="font-size:15px;font-weight:800;margin-bottom:8px;">Word više nije "samo pisanje"</div>
+              <p>U Word dokument danas možeš ubaciti slike, oblike, ikone, grafikone, pa čak i 3D objekte, tako da od
+                običnog teksta možeš napraviti pravu mini‑prezentaciju.</p>
             </div>
+
           </div>
         </div>
-        <div class="frame footer reveal">
-          <span>Naglasak: razumjeti alat, pravilno primijeniti mogućnosti i odabrati prikladno oblikovanje.</span>
-          <div style="display:flex;align-items:center;gap:12px;"><span>Napredak</span>
-            <div class="progress"><span style="width:100%"></span></div>
-          </div>
-        </div>
+
       </div>
     </div>
 

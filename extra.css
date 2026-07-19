@@ -49,19 +49,18 @@
     margin-left: auto;
 }
 
-span {
-    &.primary {
-        color: var(--primary);
-    }
-
-    &.italic {
-        font-style: italic;
-    }
-
-    &.bold {
-        font-weight: bold;
-    }
+.primary {
+    color: var(--primary);
 }
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 
 .align-self-center {
     align-self: center;
@@ -127,8 +126,8 @@ span {
 
     &.contain-250 {
         display: block;
-        max-width: 250px;
         object-fit: contain;
+        max-width: 250px;
     }
 }
 
